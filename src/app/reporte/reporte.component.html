@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS desde CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-d4yK1vbqhqO5n5fOgnFq4tXl72uu0CggR6NCf3MK6RU5vqU4M5AoqU2NL5g52stF" crossorigin="anonymous">
+
+<!-- Font Awesome desde CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rDxwzn8zRr6f8H8rcrIrI0cFwwcFB8Fb9FRR5bxgAb7hfrV3vu5KMj3P89eDz2fO" crossorigin="anonymous">
+
+<!-- Otros estilos desde CDN o ajusta las rutas según la estructura de tu proyecto -->
+<!-- ... -->
+
+
+
+    <title>DataTables | Gentelella</title>
+
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-bus"></i> <span>Huascar S.A.C </span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+           <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Trabajador</span>
+              <h2>Valentina Vale</h2>
+            </div>
+          </div>
+          <!-- /menu profile quick info -->
+
+            <br />
+
+           <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+          </div>
+          <hr>
+          <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <div class="nav toggle">
+                  <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                </div>
+                <h3 class="x_title">Reporte Vehicular</h3>
+            </div>
+          </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="page-title">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_content">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div class="text-center">
+                          <h1>Vehiculos</h1>
+                        </div>
+                        <hr>
+                        <div class="card-box table-responsive">
+                          <!-- Botón para abrir el modal -->
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filtroModal">
+                              Abrir filtro
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="filtroModal" tabindex="-1" role="dialog" aria-labelledby="filtroModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                          <h5 class="modal-title" id="filtroModalLabel">Filtro</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                              <span aria-hidden="true">&times;</span>
+                                          </button>
+                                      </div>
+                                      <div class="modal-body">
+                                          <form>
+                                              <div class="form-group">
+                                                  <label for="filtro">Filtrar por:</label>
+                                                  <select class="form-control" id="filtro">
+                                                      <option>Mes</option>
+                                                      <option>Día</option>
+                                                      <option>Rango de días</option>
+                                                      <option>Precios</option>
+                                                  </select>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="valor">Valor:</label>
+                                                  <input type="text" class="form-control" id="valor" placeholder="Ingresa el valor aquí">
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="precio">Rango de precio:</label>
+                                                  <select class="form-control" id="precio">
+                                                      <option>Precio 1</option>
+                                                      <option>Precio 2</option>
+                                                      <option>Precio 3</option>
+                                                      <option>Precio 4</option>
+                                                      <option>Precio 5</option>
+                                                      <option>Precio 6</option>
+                                                  </select>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="fecha">Fecha:</label>
+                                                  <input type="date" class="form-control" id="fecha">
+                                              </div>
+                                              <div class="form-group">
+                                                  <label for="mes">Mes:</label>
+                                                  <select class="form-control" id="mes">
+                                                      <option>Enero</option>
+                                                      <option>Febrero</option>
+                                                      <option>Marzo</option>
+                                                      <option>Abril</option>
+                                                      <option>Mayo</option>
+                                                      <option>Junio</option>
+                                                      <option>Julio</option>
+                                                      <option>Agosto</option>
+                                                      <option>Septiembre</option>
+                                                      <option>Octubre</option>
+                                                      <option>Noviembre</option>
+                                                      <option>Diciembre</option>
+                                                  </select>
+                                              </div>
+                                          </form>
+                                      </div>
+
+                                      
+                                      <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                          <button type="button" class="btn btn-primary">Aplicar filtro</button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <table #table class="table table-striped table-bordered" style="width:100%">
+                            <thead class="text-center">
+                              <tr>
+                                <th>Placa</th>
+                                <th>Tipo Vehiculo</th>
+                                <th>Precio (S/)</th>
+                                <th>Hora registro</th>
+                                <th>Fecha</th>
+                              </tr>
+                            </thead>
+
+
+                            <tbody class="text-center">
+                              <tr>
+                                <td>AFT-5678</td>
+                                <td>BUS - N2</td>
+                                <td>130</td>
+                                <td>9:45</td>
+                                <td>2023/11/20</td>
+                              </tr>
+                              <tr>
+                                <td>AFT-1234</td>
+                                <td>TRAIN - T5</td>
+                                <td>100</td>
+                                <td>14:30</td>
+                                <td>2023/11/21</td>
+                              </tr>
+                              <tr>
+                                <td>FLT-9876</td>
+                                <td>AIRPLANE - A8</td>
+                                <td>150</td>
+                                <td>10:15</td>
+                                <td>2023/11/22</td>
+                              </tr>
+                              <tr>
+                                <td>SHP-5432</td>
+                                <td>SHIP - S3</td>
+                                <td>80</td>
+                                <td>16:00</td>
+                                <td>2023/11/23</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div>
+                            <button (click)="openPdfTables()">Open PDF - Tables</button>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <!-- footer content -->
+        <footer>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+  </body>
+</html>
